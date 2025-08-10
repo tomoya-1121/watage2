@@ -70,7 +70,7 @@
         <hr />
         <div>
           <label class="small">写真アップロード（カレンダー日に紐づけ）</label>
-          <input type="file" id="photoInputLeft" accept="image/*">
+          <input type="file" id="photoInputLeft" accept="image/*" multiple>
           <input type="text" id="leftEventText" placeholder="イベント名">
           <button id="leftAddEvent" class="primary">イベント追加</button>
         </div>
@@ -117,7 +117,7 @@
         <div id="modalThumbnails" style="display: flex; flex-wrap: wrap; gap: 6px; overflow-y: auto; max-height: 200px; margin-bottom: 12px;"></div>
         <div>
           <div style="display:flex; gap:8px; margin-bottom:8px">
-            <input type="file" id="modalPhotoInput">
+            <input type="file" id="modalPhotoInput" accept="image/*" multiple>
             <input type="text" id="modalEventText" placeholder="イベント名">
             <button id="modalAddEvent" class="primary">イベント追加</button>
           </div>
