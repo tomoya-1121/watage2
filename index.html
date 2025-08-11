@@ -339,7 +339,7 @@
       const reader=new FileReader();
       reader.onload=function(e){
         const all=load(KEY_PHOTOS);
-        const d = activeDate;
+        const d = todayISO();
         all[d]= all[d]||[];
         all[d].push({id:uid(), src:e.target.result, time:new Date().toISOString()});
         save(KEY_PHOTOS, all);
@@ -369,4 +369,5 @@
   </script>
 </body>
 </html>
+
 
