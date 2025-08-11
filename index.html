@@ -335,20 +335,31 @@
     }
 
     document.getElementById('photoInputLeft').addEventListener('change', function(){
-      const file=this.files[0]; if(!file) return;
-      const reader=new FileReader();
-      reader.onload=function(e){
-        const all=load(KEY_PHOTOS);
-        const d = todayISO();
-        all[d]= all[d]||[];
-        all[d].push({id:uid(), src:e.target.result, time:new Date().toISOString()});
-        save(KEY_PHOTOS, all);
-        refreshLeftGallery();
-        renderCalendar();
-      };
-      reader.readAsDataURL(file);
-      this.value=null;
+  if (!this.files.length) return;
+  
+  // 先にリセット
+  const file = this.files[0];
+  this.value = null; // 先頭に移動
+
+  const reader = new FileReader();
+  reader.onload = function(e){
+    const all = load(KEY_PHOTOS);
+    if (!activeDate) activeDate = todayISO();
+    const d = activeDate;
+    all[d] = all[d] || [];
+    all[d].push({
+      id: uid(),
+      src: e.target.result,
+      time: new Date().toISOString()
     });
+    save(KEY_PHOTOS, all);
+    refreshLeftGallery();
+    renderCalendar();
+    openDay(d); // ← 右側即更新
+  };
+  reader.readAsDataURL(file);
+});
+
 
     document.getElementById('leftAddEvent').addEventListener('click', () => {
       const t = document.getElementById('leftEventText').value.trim();
@@ -369,5 +380,6 @@
   </script>
 </body>
 </html>
+
 
 
