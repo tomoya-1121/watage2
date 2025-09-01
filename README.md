@@ -22,6 +22,14 @@
 - モーダルウィンドウの実装
 - データ構造管理（写真・日記・イベントを日付キーで管理）
 
+## 📷 スクリーンショット
+### PC版
+![PC表示1](docs/screenshot-pc1.jpeg)
+![PC表示2](docs/screenshot-pc2.jpeg)
+### スマホ版
+![スマホ表示1](docs/screenshot-mobile1.jpg)
+![スマホ表示2](docs/screenshot-mobile2.jpg)
+
 ## 🚀 使い方
 1. ブラウザで `index.html` を開く
 2. カレンダーの日付をクリックして記録を追加
